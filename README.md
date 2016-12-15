@@ -1,7 +1,8 @@
 # USB sticky bootable windows using Linux
 
 ## Firstly this tutorial will be shown in English and below in Portuguese.
-#En
+##English
+
 CREATE PENDRIVE BOOTABLE WITH WINDOWS 10
 
 This tip is update from an earlier available in: Windows 7 bootable by the pendrive [Tip]
@@ -108,7 +109,7 @@ To restore this image to another pendrive it would be enough to execute the oppo
 
 It is!
 
-#Pt-Br
+##Pt-Br
 CRIAR PENDRIVE BOOTÁVEL COM WINDOWS 10
 
 
