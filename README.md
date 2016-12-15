@@ -18,9 +18,8 @@ Pendrive with at least 8GB
 If your distribution has ms-sys in the repositories, great, just install. But ms-sys does not exist in Ubuntu repositories, so installing it on Ubuntu needs to be "manual".
 
 INSTALLING MS-SYS
-
-Go to:
-Http://ms-sys.sourceforge.net/#Download
+http://ms-sys.sourceforge.net/#Download
+or you can get this file in this repository
 
 Download the latest stable version. It should be a package in ms-sys-VERSION-tar.gz format.
 
@@ -112,8 +111,6 @@ It is!
 ##Pt-Br
 CRIAR PENDRIVE BOOTÁVEL COM WINDOWS 10
 
-
-
 Esta dica é atualização de uma anterior disponível em: Windows 7 bootável pelo pendrive [Dica] 
 
 Dica testada na distribuição Elementary OS Freya (Ubuntu) e Fedora 24. 
@@ -130,22 +127,23 @@ INSTALAÇÃO DO MS-SYS
 
 Acesse:
 http://ms-sys.sourceforge.net/#Download
+ou você pode obter este arquivo neste repositório.
 
 Baixe a última versão estável. Deve ser um pacote no formato ms-sys-VERSÃO-tar.gz. 
 
 Descompacte-o com: 
 
- tar -xzvf ms-sys*.tgz 
+// tar -xzvf ms-sys*.tgz 
 
 Compile: 
 
- cd ms-sys
-$ make 
+// cd ms-sys
+// $ make 
 
 Torne-se root e instale: 
 
  su
-# make install 
+ // # make install 
 
 Obs.: ao invés de "su", no Ubuntu por padrão seria "sudo su", pois o mesmo não cria senha de root durante a instalação. 
 
@@ -153,11 +151,11 @@ PREPARAÇÃO DO PENDRIVE
 
 Conecte o pendrive. Para saber onde ele está use o comando como root: 
 
-# fdisk -l 
+// # fdisk -l 
 
 Vamos supor que ele ficou em "/dev/sdb". Então execute, como root: 
 
-# cfdisk /dev/sdb 
+// # cfdisk /dev/sdb 
 
 Usando o cfdisk apague todas as partições do pendrive e crie uma única partição (marcada como bootável e do tipo 7). 
 
@@ -167,13 +165,13 @@ Assim você terá criado uma partição chamada "/dev/sdb1". Depois disso saia d
 
 Formate a partição criada como NTFS. Para isso use o comando, ainda como root: 
 
-# mkfs.ntfs -f /dev/sdb1 
+// # mkfs.ntfs -f /dev/sdb1 
 
 USANDO O MS-SYS
 
 Grave o MBR do Windows no pendrive recém formatado. Para isso use o comando: 
 
-# ms-sys -7 /dev/sdb 
+// # ms-sys -7 /dev/sdb 
 
 Obs.: no comando acima use "/dev/sdb" e não "/dev/sdb1". Ou seja, use sem o número. O uso de "-7" serve para Windows 7, 8 e 10. Para outras opções use o comando "ms-sys --help". 
 
@@ -183,24 +181,24 @@ Monte a imagem ISO (ou o DVD) do Windows 7 em um diretório do seu agrado. Neste
 
 Crie dois diretórios para montagem: 
 
-# mkdir /mnt/iso
-# mkdir /mnt/usb 
+// # mkdir /mnt/iso
+// # mkdir /mnt/usb 
 
 Para montar a imagem ISO: 
 
-# mount -o loop windows.iso /mnt/iso 
+// # mount -o loop windows.iso /mnt/iso 
 
 Ou, no caso de ser um DVD: 
 
-# mount /dev/sr0 /mnt/iso 
+// # mount /dev/sr0 /mnt/iso 
 
 E monte também a partição que está no pendrive em outro diretório. Neste exemplo usarei "/mnt/usb": 
 
-# mount /dev/sdb1 /mnt/usb 
+// # mount /dev/sdb1 /mnt/usb 
 
 Copie todos os arquivos do DVD, ou da imagem ISO, do Windows para a partição do pendrive: 
 
-# cp -r /mnt/iso/* /mnt/usb/ 
+// # cp -r /mnt/iso/* /mnt/usb/ 
 
 Aguarde. Pode demorar bastante, pois são muitos arquivos. 
 
@@ -208,12 +206,12 @@ Quando terminar, você pode dar boot pelo pendrive que irá iniciar o Windows 10
 
 Opcionalmente você poderá salvar os arquivos como imagem para usar em outros pendrives sem precisar executar todo o procedimento de novo. Basta usar como root: 
 
-# dd if=/dev/sdb of=/home/windows.img 
+// # dd if=/dev/sdb of=/home/windows.img 
 
 Assim será criado uma imagem do sistema, bootável, dentro de /home. 
 
 Para restaurar essa imagem em outro pendrive bastaria executar o contrário do comando anterior, que seria: 
 
-# dd if=/home/windows.img of=/dev/sdb 
+// # dd if=/home/windows.img of=/dev/sdb 
 
 É isso! 
